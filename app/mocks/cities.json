@@ -1,0 +1,392 @@
+[
+	{
+		"id": "ALB_TIR",
+		"countryId": "ALB",
+		"city": "Tirana"
+	},
+	{
+		"id": "AND_AND",
+		"countryId": "AND",
+		"city": "Andorra La Vella"
+	},
+	{
+		"id": "ARM_YER",
+		"countryId": "ARM",
+		"city": "Yerevan"
+	},
+	{
+		"id": "AUS_GRA",
+		"countryId": "AUS",
+		"city": "Graz"
+	},
+	{
+		"id": "AUS_LIN",
+		"countryId": "AUS",
+		"city": "Linz"
+	},
+	{
+		"id": "AUS_SAL",
+		"countryId": "AUS",
+		"city": "Salzburg"
+	},
+	{
+		"id": "AUS_VIE",
+		"countryId": "AUS",
+		"city": "Vienna"
+	},
+	{
+		"id": "AZE_BAK",
+		"countryId": "AZE",
+		"city": "Baku"
+	},
+	{
+		"id": "BEL_BRU",
+		"countryId": "BEL",
+		"city": "Brussels"
+	},
+	{
+		"id": "BEL_GHE",
+		"countryId": "BEL",
+		"city": "Ghent"
+	},
+	{
+		"id": "BEL_MON",
+		"countryId": "BEL",
+		"city": "Mons"
+	},
+	{
+		"id": "BLR_MIN",
+		"countryId": "BLR",
+		"city": "Minsk"
+	},
+	{
+		"id": "BOS_SAR",
+		"countryId": "BIH",
+		"city": "Sarajevo"
+	},
+	{
+		"id": "BUL_SOF",
+		"countryId": "BGR",
+		"city": "Sofia"
+	},
+	{
+		"id": "CHE_BER",
+		"countryId": "CHE",
+		"city": "Bern"
+	},
+	{
+		"id": "CHE_ZUR",
+		"countryId": "CHE",
+		"city": "Zurich"
+	},
+	{
+		"id": "CRO_ZAG",
+		"countryId": "HRV",
+		"city": "Zagreb"
+	},
+	{
+		"id": "CYP_NIC",
+		"countryId": "CYP",
+		"city": "Nicosia"
+	},
+	{
+		"id": "CZE_BRN",
+		"countryId": "CZE",
+		"city": "Brno"
+	},
+	{
+		"id": "CZE_PRA",
+		"countryId": "CZE",
+		"city": "Prague"
+	},
+	{
+		"id": "DEU_BER",
+		"countryId": "DEU",
+		"city": "Berlin"
+	},
+	{
+		"id": "DEU_FRA",
+		"countryId": "DEU",
+		"city": "Francfort"
+	},
+	{
+		"id": "DEU_MUN",
+		"countryId": "DEU",
+		"city": "Munich"
+	},
+	{
+		"id": "EST_TAI",
+		"countryId": "EST",
+		"city": "Tailinn"
+	},
+	{
+		"id": "FIN_HEL",
+		"countryId": "FIN",
+		"city": "Helsinki"
+	},
+	{
+		"id": "FRA_LIL",
+		"countryId": "FRA",
+		"city": "Lille"
+	},
+	{
+		"id": "FRA_LYO",
+		"countryId": "FRA",
+		"city": "Lyon"
+	},
+	{
+		"id": "FRA_MAR",
+		"countryId": "FRA",
+		"city": "Marseille"
+	},
+	{
+		"id": "FRA_NAN",
+		"countryId": "FRA",
+		"city": "Nantes"
+	},
+	{
+		"id": "FRA_PAR",
+		"countryId": "FRA",
+		"city": "Paris"
+	},
+	{
+		"id": "FRA_TOU",
+		"countryId": "FRA",
+		"city": "Toulouse"
+	},
+	{
+		"id": "GEO_TBI",
+		"countryId": "GEO",
+		"city": "Tbilissi"
+	},
+	{
+		"id": "GRC_ATH",
+		"countryId": "GRC",
+		"city": "Athens"
+	},
+	{
+		"id": "HUN_BUD",
+		"countryId": "HUN",
+		"city": "Budapest"
+	},
+	{
+		"id": "IRL_DUB",
+		"countryId": "IRL",
+		"city": "Dublin"
+	},
+	{
+		"id": "ISL_REY",
+		"countryId": "ISL",
+		"city": "Reykjavik"
+	},
+	{
+		"id": "ITA_MIL",
+		"countryId": "ITA",
+		"city": "Milan"
+	},
+	{
+		"id": "ITA_NAP",
+		"countryId": "ITA",
+		"city": "Naples"
+	},
+	{
+		"id": "ITA_ROM",
+		"countryId": "ITA",
+		"city": "Rome"
+	},
+	{
+		"id": "ITA_TUR",
+		"countryId": "ITA",
+		"city": "Turin"
+	},
+	{
+		"id": "KAZ_NUR",
+		"countryId": "KAZ",
+		"city": "Nur Sultan"
+	},
+	{
+		"id": "LIE",
+		"countryId": "LIE",
+		"city": "Vaduz"
+	},
+	{
+		"id": "LTU",
+		"countryId": "LTU",
+		"city": "Vilnius"
+	},
+	{
+		"id": "LUX_LUX",
+		"countryId": "LUX",
+		"city": "Luxembourg"
+	},
+	{
+		"id": "LVA_RIG",
+		"countryId": "LVA",
+		"city": "Riga"
+	},
+	{
+		"id": "MDA_CHI",
+		"countryId": "MDA",
+		"city": "Chisinau"
+	},
+	{
+		"id": "MKD_AMS",
+		"countryId": "MKD",
+		"city": "Skopje"
+	},
+	{
+		"id": "MLT_VAL",
+		"countryId": "MLT",
+		"city": "Valletta"
+	},
+	{
+		"id": "MNE_POD",
+		"countryId": "MNE",
+		"city": "Podgorica"
+	},
+	{
+		"id": "MON_MON",
+		"countryId": "MCO",
+		"city": "Monaco"
+	},
+	{
+		"id": "NLD_AMS",
+		"countryId": "NLD",
+		"city": "Amsterdam"
+	},
+	{
+		"id": "NOR_OSL",
+		"countryId": "NOR",
+		"city": "Oslo"
+	},
+	{
+		"id": "POL_WAR",
+		"countryId": "POL",
+		"city": "Warsaw"
+	},
+	{
+		"id": "PRT_LIS",
+		"countryId": "PRT",
+		"city": "Lisbon"
+	},
+	{
+		"id": "PRT_POR",
+		"countryId": "PRT",
+		"city": "Porto"
+	},
+	{
+		"id": "ROM_BUC",
+		"countryId": "ROU",
+		"city": "Bucharest"
+	},
+	{
+		"id": "RUS_MOS",
+		"countryId": "RUS",
+		"city": "Moscow"
+	},
+	{
+		"id": "RUS_STP",
+		"countryId": "RUS",
+		"city": "St Petersburg"
+	},
+	{
+		"id": "SAN_SAN",
+		"countryId": "SMR",
+		"city": "San Marino"
+	},
+	{
+		"id": "SER_BEL",
+		"countryId": "SRB",
+		"city": "Belgrade"
+	},
+	{
+		"id": "SLO_BRA",
+		"countryId": "SVK",
+		"city": "Bratislava"
+	},
+	{
+		"id": "SLO_LJU",
+		"countryId": "SVN",
+		"city": "Ljubljana"
+	},
+	{
+		"id": "SPA_BAR",
+		"countryId": "ESP",
+		"city": "Barcelona"
+	},
+	{
+		"id": "SPA_BIL",
+		"countryId": "ESP",
+		"city": "Bilbao"
+	},
+	{
+		"id": "SPA_MAD",
+		"countryId": "ESP",
+		"city": "Madrid"
+	},
+	{
+		"id": "SPA_MAL",
+		"countryId": "ESP",
+		"city": "Malaga"
+	},
+	{
+		"id": "SPA_SAN",
+		"countryId": "ESP",
+		"city": "San Sebastian"
+	},
+	{
+		"id": "SPA_SEV",
+		"countryId": "ESP",
+		"city": "Sevilla"
+	},
+	{
+		"id": "SWE_STO",
+		"countryId": "SWE",
+		"city": "Stockholm"
+	},
+	{
+		"id": "TUR_ANK",
+		"countryId": "TUR",
+		"city": "Ankara"
+	},
+	{
+		"id": "TUR_IST",
+		"countryId": "TUR",
+		"city": "Instanbul"
+	},
+	{
+		"id": "UKR_KYI",
+		"countryId": "UKR",
+		"city": "Kyiv"
+	},
+	{
+		"id": "UNI_BIR",
+		"countryId": "GBR",
+		"city": "Birmingham"
+	},
+	{
+		"id": "UNI_CAR",
+		"countryId": "GBR",
+		"city": "Cardiff"
+	},
+	{
+		"id": "UNI_GLA",
+		"countryId": "GBR",
+		"city": "Glasgow"
+	},
+	{
+		"id": "UNI_LIV",
+		"countryId": "GBR",
+		"city": "Liverpool"
+	},
+	{
+		"id": "UNI_LON",
+		"countryId": "GBR",
+		"city": "London"
+	},
+	{
+		"id": "UNI_MAN",
+		"countryId": "GBR",
+		"city": "Manchester"
+	}
+]

@@ -1,0 +1,938 @@
+openapi: 3.0.1
+
+#################### GENERAL ####################
+info:
+  title: BNB My Guest REST API
+  description: >
+    This is the REST API
+    Of BNB My Guest Service
+  contact:
+    email: john.doe@bnb-my-guest.com
+  version: 1.0.0
+servers:
+- url: http://localhost:3000
+tags:
+- name: Countries
+  description: All the Country operations
+
+#################### PATHS ####################
+paths:
+
+  # Apartment operations 
+  /apartments:
+    x-controller: apartments
+    get:
+      summary: Get all apartments (filter by city or host)
+      x-operation: getAll
+      tags:
+        - Apartments
+      parameters:
+        - $ref: "#/components/parameters/QueryPage"
+        - $ref: "#/components/parameters/QueryPerPage"
+        - name: cityId
+          in: query
+          schema:
+            type: string
+            example: FRA_TOU
+          required: false
+        - name: hostId
+          in: query
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: false
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: "#/components/schemas/PagedResponse"
+                properties:
+                  items:
+                    $ref: "#/components/schemas/Apartment"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+    post:
+      summary: Create a new apartment
+      x-operation: addNew
+      tags:
+        - Apartments
+      requestBody:
+        description: The apartment to add
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Apartment'
+      responses:
+        200:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Apartment"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+        
+  /apartments/{apartmentId}:
+    x-controller: apartments
+    get:
+      summary: Get an apartment by id
+      x-operation: getById
+      tags:
+        - Apartments
+      parameters:
+        - name: apartmentId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Apartment"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+    delete:
+      summary: Delete an existing apartment
+      x-operation: deleteApartment
+      tags:
+        - Apartments
+      parameters:
+        - name: apartmentId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      responses:
+        204:
+          description: Deleted - No content
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+    put:
+      summary: Update an existing apartment
+      x-operation: updateApartment
+      tags:
+        - Apartments
+      parameters:
+        - name: apartmentId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      requestBody:
+        description: The updated apartment
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Apartment'
+      responses:
+        200:
+          description: Updated
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+
+  # City operations
+  /cities:
+    x-controller: cities
+    get:
+      summary: Get all cities (filter by country)
+      x-operation: getAll
+      tags:
+        - Cities
+      parameters:
+        - $ref: "#/components/parameters/QueryPage"
+        - $ref: "#/components/parameters/QueryPerPage"
+        - name: countryId
+          in: query
+          schema:
+            type: string
+            example: FRA
+          required: false
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: "#/components/schemas/PagedResponse"
+                properties:
+                  items:
+                    $ref: "#/components/schemas/City"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+
+  /cities/{cityId}:
+    x-controller: cities
+    get:
+      summary: Get a city by id
+      x-operation: getById
+      tags:
+        - Cities
+      parameters:
+        - name: cityId
+          in: path
+          schema:
+            type: string
+            example: FRA_TOU
+          required: true
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/City"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+
+  # Country operations
+  /countries:
+    x-controller: countries
+    get:
+      summary: Get all countries
+      x-operation: getAll
+      tags:
+        - Countries
+      parameters:
+        - $ref: "#/components/parameters/QueryPage"
+        - $ref: "#/components/parameters/QueryPerPage"
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: "#/components/schemas/PagedResponse"
+                properties:
+                  items:
+                    $ref: "#/components/schemas/Country"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+
+  /countries/{countryId}:
+    x-controller: countries
+    get:
+      summary: Get a country by id
+      x-operation: getById
+      tags:
+        - Countries
+      parameters:
+        - name: countryId
+          in: path
+          schema:
+            type: string
+            example: FRA
+          required: true
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Country"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+
+  # Hosts operations
+  /hosts:
+    x-controller: hosts
+    get:
+      summary: Get all hosts
+      x-operation: getAll
+      tags:
+        - Hosts
+      parameters:
+        - $ref: "#/components/parameters/QueryPage"
+        - $ref: "#/components/parameters/QueryPerPage"
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: "#/components/schemas/PagedResponse"
+                properties:
+                  items:
+                    $ref: "#/components/schemas/Country"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"   
+    post:
+      summary: Create a new host
+      x-operation: addNew
+      tags:
+        - Hosts
+      requestBody:
+        description: The host to add
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Host'
+      responses:
+        200:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Host"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+          
+  /hosts/{hostId}:
+    x-controller: hosts
+    get:
+      summary: Get a host by id
+      x-operation: getById
+      tags:
+        - Hosts
+      parameters:
+        - name: hostId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Host"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+    delete:
+      summary: Delete an existing host
+      x-operation: deleteHost
+      tags:
+        - Hosts
+      parameters:
+        - name: hostId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      responses:
+        204:
+          description: Deleted - No content
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+    put:
+      summary: Update an existing host
+      x-operation: updateHost
+      tags:
+        - Hosts
+      parameters:
+        - name: hostId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      requestBody:
+        description: The updated host
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Host'
+      responses:
+        200:
+          description: Updated
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+    
+  
+  # Guests operations
+  /guests:
+    x-controller: guests
+    get:
+      summary: Get all guests
+      x-operation: getAll
+      tags:
+        - Guests
+      parameters:
+        - $ref: "#/components/parameters/QueryPage"
+        - $ref: "#/components/parameters/QueryPerPage"
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: "#/components/schemas/PagedResponse"
+                properties:
+                  items:
+                    $ref: "#/components/schemas/Country"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"   
+    post:
+      summary: Create a new guest
+      x-operation: addNew
+      tags:
+        - Guests
+      requestBody:
+        description: The guest to add
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Guest'
+      responses:
+        200:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Guest"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+          
+  /guests/{guestId}:
+    x-controller: guests
+    get:
+      summary: Get a guest by id
+      x-operation: getById
+      tags:
+        - Guests
+      parameters:
+        - name: guestId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Guest"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+    delete:
+      summary: Delete an existing guest
+      x-operation: deleteGuest
+      tags:
+        - Guests
+      parameters:
+        - name: guestId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      responses:
+        204:
+          description: Deleted - No content
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+    put:
+      summary: Update an existing guest
+      x-operation: updateGuest
+      tags:
+        - Guests
+      parameters:
+        - name: guestId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      requestBody:
+        description: The updated guest
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Guest'
+      responses:
+        200:
+          description: Updated
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+
+  # Rentals operations
+  /rentals:
+    x-controller: rentals
+    get:
+      summary: Get all rentals
+      x-operation: getAll
+      tags:
+        - Rentals
+      parameters:
+        - $ref: "#/components/parameters/QueryPage"
+        - $ref: "#/components/parameters/QueryPerPage"
+        - name: apartmentId
+          in: query
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: false
+        - name: guestId
+          in: query
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: false 
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: "#/components/schemas/PagedResponse"
+                properties:
+                  items:
+                    $ref: "#/components/schemas/Rental"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"   
+    post:
+      summary: Create a new rental
+      x-operation: addNew
+      tags:
+        - Rentals
+      requestBody:
+        description: The rental to add
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rental'
+      responses:
+        200:
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rental"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+      
+  /rentals/{rentalId}/pay:
+    x-controller: rentals
+    post:
+      summary: Set the status of an existing rental to PAID
+      x-operation: pay
+      tags:
+        - Rentals
+      parameters:
+        - name: rentalId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rental"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+
+  /rentals/{rentalId}/cancel:
+    x-controller: rentals
+    post:
+      summary: Set the status of an existing rental to CANCELLED
+      x-operation: cancel
+      tags:
+        - Rentals
+      parameters:
+        - name: rentalId
+          in: path
+          schema:
+            type: string
+            example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+          required: true
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rental"
+        400:
+          $ref: "#/components/responses/BadRequestError"
+        404:
+          $ref: "#/components/responses/NotFoundError"
+        500:
+          $ref: "#/components/responses/UnexpectedServerError"
+
+components:
+
+  #################### SCHEMAS ####################
+  schemas:
+
+    Apartment:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+        hostId:
+          type: string
+          example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+        cityId:
+          type: string
+          example: FRA_TOU
+        bedrooms:
+          type: number
+          minimum: 0
+          example: 4
+        price:
+          type: number
+          minimum: 0
+          example: 259.90
+      required:
+        - hostId
+        - cityId
+        - bedrooms
+        - price
+
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          example: FRA_TOU
+        city:
+          type: string
+          example: Toulouse
+        countryId:
+          type: string
+          example: FRA
+      required:
+        - id
+        - city
+        - countryId
+
+    Country:
+      type: object
+      properties:
+        id:
+          type: string
+          example: FRA
+        country:
+          type: string
+          example: France
+      required:
+        - id
+        - country
+
+    Guest:
+      allOf:
+        - $ref: '#/components/schemas/Person'
+        - type: object
+          properties:
+            preferences:
+              type: object
+              properties:
+                language:
+                  type: string
+                  enum:
+                    - DE
+                    - EN
+                    - ES
+                    - FR
+                  default: EN
+                currency:
+                  type: string
+                  enum:
+                    - EUR
+                    - USD
+                  default: EUR
+              required:
+                - language
+                - currency
+          required:
+            - preferences
+
+    Host:
+      allOf:
+        - $ref: '#/components/schemas/Person'
+        - type: object
+          properties:
+            contact:
+              type: object
+              properties:
+                phone:
+                  type: string
+                  example: "+33123456789"
+                fax:
+                  type: string
+              required:
+                - phone
+
+    Person:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+        firstname:
+          type: string
+          example: John
+        lastname:
+          type: string
+          example: Doe
+        email:
+          type: string
+          example: john.doe@bnb-my-guest.com
+        address:
+          type: object
+          properties:
+            street:
+              type: string
+              example: 321 Grove Street
+            zipCode:
+              type: string
+              example: "34567"
+            city:
+              type: string
+              example: Los Santos
+            country:
+              type: string
+              example: France
+          required:
+            - street
+            - zipCode
+            - city
+            - country
+      required:
+        - firstname
+        - lastname
+        - email
+        - address
+
+    Rental:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+        guestId:
+          type: string
+          example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+        apartmentId:
+          type: string
+          example: 1a2b3c4d-5e6f-1234-abcd-5678cdef9876
+        checkIn:
+          type: string
+          format: date
+          example: "2021-01-01"
+        checkOut:
+          type: string
+          format: date
+          example: "2021-01-07"
+        status:
+          type: string
+          enum:
+            - WAITING_FOR_PAYMENT
+            - PAID
+            - CANCELLED
+          default: WAITING_FOR_PAYMENT
+      required:
+        - guestId
+        - apartmentId
+        - checkIn
+        - checkOut
+        
+    PagedResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            type: object
+        page:
+          type: integer
+          format: int32
+          example: 1
+        perPage:
+          type: integer
+          format: int32
+          example: 10
+        totalItems:
+          type: integer
+          format: int32
+          example: 155
+        totalPages:
+          type: integer
+          format: int32
+          example: 16
+      required:
+        - page
+        - perPage
+        - totalItems
+        - totalPages
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: CLI_123
+        label:
+          type: string
+          example: Something bad happened...
+      required:
+        - code
+        - label
+
+  #################### PARAMETERS ####################
+  parameters:
+    
+    QueryPage:
+      name: page
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32
+        default: 1
+        example: 5
+
+    QueryPerPage:
+      name: perPage
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32            
+        default: 10
+        example: 20
+
+  #################### RESPONSES ####################
+  responses:
+
+    NotFoundError:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+
+    BadRequestError:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+
+    UnexpectedServerError:
+      description: Unexpected Server error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+
+  #################### SECURITY ####################
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+
+security:
+  - bearerAuth: []

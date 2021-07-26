@@ -1,0 +1,194 @@
+[
+	{
+		"id": "ALB",
+		"country": "Albania"
+	},
+	{
+		"id": "AND",
+		"country": "Andorra"
+	},
+	{
+		"id": "ARM",
+		"country": "Armenia"
+	},
+	{
+		"id": "AUS",
+		"country": "Austria"
+	},
+	{
+		"id": "AZE",
+		"country": "Azebaijan"
+	},
+	{
+		"id": "BEL",
+		"country": "Belgium"
+	},
+	{
+		"id": "BGR",
+		"country": "Bulgaria"
+	},
+	{
+		"id": "BIH",
+		"country": "Bosnia And Herzegovina"
+	},
+	{
+		"id": "BLR",
+		"country": "Belarus"
+	},
+	{
+		"id": "CHE",
+		"country": "Switzerland"
+	},
+	{
+		"id": "CYP",
+		"country": "Cyprus"
+	},
+	{
+		"id": "CZE",
+		"country": "Czechia"
+	},
+	{
+		"id": "DEU",
+		"country": "Germany"
+	},
+	{
+		"id": "ESP",
+		"country": "Spain"
+	},
+	{
+		"id": "EST",
+		"country": "Estonia"
+	},
+	{
+		"id": "FIN",
+		"country": "Finland"
+	},
+	{
+		"id": "FRA",
+		"country": "France"
+	},
+	{
+		"id": "GBR",
+		"country": "United Kingdom"
+	},
+	{
+		"id": "GEO",
+		"country": "Georgia"
+	},
+	{
+		"id": "GRC",
+		"country": "Greece"
+	},
+	{
+		"id": "HRV",
+		"country": "Croatia"
+	},
+	{
+		"id": "HUN",
+		"country": "Hungary"
+	},
+	{
+		"id": "IRL",
+		"country": "Ireland"
+	},
+	{
+		"id": "ISL",
+		"country": "Iceland"
+	},
+	{
+		"id": "ITA",
+		"country": "Italy"
+	},
+	{
+		"id": "KAZ",
+		"country": "Kazakhstan"
+	},
+	{
+		"id": "LIE",
+		"country": "Liechtenstein"
+	},
+	{
+		"id": "LTU",
+		"country": "Lithuania"
+	},
+	{
+		"id": "LUX",
+		"country": "Luxembourg"
+	},
+	{
+		"id": "LVA",
+		"country": "Latvia"
+	},
+	{
+		"id": "MCO",
+		"country": "Monaco"
+	},
+	{
+		"id": "MDA",
+		"country": "Moldova"
+	},
+	{
+		"id": "MKD",
+		"country": "North Macedonia"
+	},
+	{
+		"id": "MLT",
+		"country": "Malta"
+	},
+	{
+		"id": "MNE",
+		"country": "Montenegro"
+	},
+	{
+		"id": "NLD",
+		"country": "Netherlands"
+	},
+	{
+		"id": "NOR",
+		"country": "Norway"
+	},
+	{
+		"id": "POL",
+		"country": "Poland"
+	},
+	{
+		"id": "PRT",
+		"country": "Portugal"
+	},
+	{
+		"id": "ROU",
+		"country": "Romania"
+	},
+	{
+		"id": "RUS",
+		"country": "Russia"
+	},
+	{
+		"id": "SMR",
+		"country": "San Marino"
+	},
+	{
+		"id": "SRB",
+		"country": "Serbia"
+	},
+	{
+		"id": "SVK",
+		"country": "Slovakia"
+	},
+	{
+		"id": "SVN",
+		"country": "Slovenia"
+	},
+	{
+		"id": "SWE",
+		"country": "Sweden"
+	},
+	{
+		"id": "TUR",
+		"country": "Turkey"
+	},
+	{
+		"id": "UKR",
+		"country": "Ukraine"
+	}
+]
